@@ -1,0 +1,72 @@
+1. Advantages of Java8
+--> concise code 
+--> more readable code 
+--> functional coding 
+2. What is lambda expression
+--> Lambda expression is an anonymous function(without name,return type,access modifiers and have -> (symbol)) 
+3. How Lambda expression and functional interfaces are related?
+--> Functional interface is used to provide reference to lambda expression --> this is the relation
+--> Comparator<String> c=(s1,s2)-> s1.compareTo(s2)
+(s1,s2)-> s1.compareTo(s2) : Lambda expression
+Comparator<String> c : Functional interface
+thus you can see , to call lambda expression we need functional interface
+4. What is method reference in java 8
+--> Method reference is replacement of lambda expression. it is used to refer method of functional interface to an
+    existing method. mainly it is used for code reusability.
+--> functional interface abstract method can be mapped to specific existing method using double colon operator(::). this
+    is method reference.
+--> Whenever we have existing implementation of abstract method of our functional interface then we can go for method
+    reference
+5. Can you use hashcode() default implementation in interface ?
+--> you can't give ur default impl. for hashcode() method in interface for all implementing classes to use.
+--> we aren't allowed to override Object class method as  default methods in interface else we will get compile error.
+--> all implementing classes by default has access to all methods of object class.
+6. Is default keyword one of the access modifier?
+ans: it's not the access modifier like public,protected etc. instead it's used for deafult methods in interface
+7. How default method in interface cope up with diamond problem
+--> Diamond problem of default methods of interface
+      -> if 2 implemented interfaces contain same default methods then that's the diamond problem
+--> in java, in such condition, the code will not compile.
+--> Solution to diamond problem
+       -> Use InterfaceName.super.methodName();
+8. Why static methods were introduced in java 8?
+--> Only reason for introducing static methods in interface is that you can call those methods with just interface name. No Need to create class and then its object.
+    Since Interface can never contain:
+    • Constructors,
+    Static blocks,
+    Nothings costly in terms of memory and performance.
+    Hence we don't need to create object and hence if you have everything static, then for interface rather than class
+    ( You have this flexibility only after java 8, before that you need to create class)
+9. Are Static Methods available to implementing classes by default?
+   --> Static methods are not available to implementing classes .
+   -->They are not default methods. They are static.
+   --> Hence you can call these methods using Interface name explicitly from the implementing classes as implementing
+   classes won't have access to these methods directly. (This is the disadvantage of static methods of interface that
+   its not available to implementing classes.)
+10. what are predicates
+--> predicates are predefined functional interface used to check boolean conditions
+--> the abstract method of predicate is test()
+--> it takes only one argument of any type
+11. What is Predicate joining?
+    You can combine predicates in serial predicate
+    Three ways to join:
+    · And
+    · Or
+    · Negate
+    Eg if you want to test 2 conditions:
+    -->  To check length of string> 5
+    -->  To check if length is even.
+12. What are Functions
+--> Function is also a predefined Functional Interface (Having only 1 abstract method).
+--> The only abstract method of Function is apply(T t);
+    · R apply(T t);
+--> Given some input perform some operation on input and then produce / return result (not necessary a boolean value).
+    · This takes 1 input and returns one output.
+--> In predicate we used to take 1 input and return type is always boolean.
+--> In function return type is not fixed hence we declare both input type and return type.
+13. What is Functional chaining
+--> We can combine / chain multiple functions together with and Then .
+    There are two ways to combine functions:
+    -> f1.andThen(f2).apply(Input); - first fl then f2
+    -> f1.compose(f2).apply(Input) - first f2 then fl
+--> Multiple functions can be chained together like : fl.andThen(f2).andThen(f3).andThen(f4).apply(Inputs);

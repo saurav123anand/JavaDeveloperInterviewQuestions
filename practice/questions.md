@@ -53,4 +53,5 @@ ans: because of filter of servlets
 11. Types of IOC container
 ans: Mainly BeanFactory and Application context
 12. How to implement CORS
-ans: using @CrossOrigin or Access-Control-Allow-Origin:url in your header to allow it 
+ans: using @CrossOrigin or Access-Control-Allow-Origin:url in your header to allow it.
+13. 
